@@ -10,14 +10,14 @@
         <header class="p-5 border-b bg-white">
             <div class="container mx-auto flex justify-between items-center">
                 <h1 class="text-3xl font-black">DevStagram</h1>
-                <nav> 
-                    <a class="text-cyan-900 text-sm" href="/">Login</a>
-                    <a class="text-cyan-900 text-sm" href="/create-account">Crear cuenta</a>
+                <nav class="flex gap-8"> 
+                    <a class="text-cyan-900 hover:text-pink-600 text-sm font-bold" href="/">Login</a>
+                    <a class="text-cyan-900 hover:text-pink-600 text-sm font-bold" href={{ route('register') }}>Crear cuenta</a>
                 </nav>
             </div> 
         </header>
         <main class="container mx-auto mt-10">
-            <h2 class="text-2xl text-center font-black mb-10">
+            <h2 class="text-3xl text-center font-black mb-10 text-pink-600">
                 @yield('title')
             </h2>
             @yield('content')

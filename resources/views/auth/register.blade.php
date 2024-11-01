@@ -11,10 +11,10 @@
         </div>
 
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="" method="POST" novalidate>
-                
+            <form action={{ route('register') }} method="POST" novalidate>
+                @csrf
                 <div class="mb-5">
-                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="name" class="mb-2 block text-blue-900 font-bold">
                            Nombre
                     </label>
                     <input 
@@ -22,7 +22,7 @@
                         name="name"
                         type="text"
                         placeholder="Tu Nombre"
-                        class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
+                        class="border p-3 w-full font-light rounded-lg @error('name') border-red-500 @enderror"
                         value="{{ old('name') }}"
                     />
 
@@ -31,7 +31,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="username" class="mb-2 block text-blue-900 font-bold">
                         Username
                     </label>
                     <input 
@@ -39,7 +39,7 @@
                         name="username"
                         type="text"
                         placeholder="Tu Nombre de Usuario"
-                        class="border p-3 w-full rounded-lg @error('username') border-red-500 @enderror"
+                        class="border p-3 w-full font-light rounded-lg @error('username') border-red-500 @enderror"
                         value="{{ old('username') }}"
                     />
 
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="email" class="mb-2 block text-blue-900 font-bold">
                         Email
                     </label>
                     <input 
@@ -57,7 +57,7 @@
                         name="email"
                         type="email"
                         placeholder="Tu Email de Registro"
-                        class="border p-3 w-full rounded-lg @error('email') border-red-500 @enderror"
+                        class="border p-3 w-full font-light rounded-lg @error('email') border-red-500 @enderror"
                         value="{{ old('email') }}"
                     />
                     @error('email')
@@ -65,7 +65,7 @@
                     @enderror
                 </div>
                 <div class="mb-5">
-                    <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password" class="mb-2 block text-blue-900 font-bold">
                         Password
                     </label>
                     <input 
@@ -73,7 +73,7 @@
                         name="password"
                         type="password"
                         placeholder="Password de Registro"
-                        class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
+                        class="border p-3 w-full font-light rounded-lg @error('password') border-red-500 @enderror"
                     />
                     @error('password')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }} </p>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="password_confirmation" class="mb-2 block text-blue-900 font-bold">
                         Repetir Password
                     </label>
                     <input 
@@ -89,14 +89,14 @@
                         name="password_confirmation"
                         type="password"
                         placeholder="Repite tu Password"
-                        class="border p-3 w-full rounded-lg"
+                        class="border p-3 w-full rounded-lg font-light"
                     />
                 </div>
 
                 <input
                     type="submit"
                     value="Crear Cuenta"
-                    class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
+                    class="bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
                 />
             </form>
         </div>
