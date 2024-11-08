@@ -1,4 +1,4 @@
-import Dropzone from "dropzone";
+import { Dropzone } from "dropzone";
 
 Dropzone.autoDiscover = false;
 
@@ -9,24 +9,31 @@ const dropzone = new Dropzone('#dropzone', {
     dictRemoveFile: 'Borrar',
     maxFiles: 1,
     uploadMultiple: false,
-})
 
-dropzone.on('sending', function(file, xhr, formData) {
+    init: function() {
+        if(document.querySelector('[name="image"]').value.trim()) {
+            const publishedImage = {}
+            publishedImage.size = 1000;
+            publishedImage.name = document.querySelector('[name="image"]').value;
 
-    console.log(formData)
+            this.options.addedfile.call(this, publishedImage);
+            this.options.thumbnail.call(this, publishedImage,`/uploads/${publishedImage.name}`);
+
+            publishedImage.previewElement.classList.add(
+                "dz-success",
+                "dz-complete"
+            );
+        }
+    }
 })
 
 dropzone.on('success', function(file, response) {
     
     console.log(response)
-})
-
-dropzone.on('error', function(file, message) {
-    
-    console.log(message)
+    document.querySelector('[name="image"]').value = response.image;
 })
 
 dropzone.on('removedFile', function() {
-    
-    console.log('archivo eliminado')
+    document.querySelector('[name="image"]').value = "";
 })
+
