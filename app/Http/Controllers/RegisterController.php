@@ -17,6 +17,10 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
+        $request->request->add([
+            'username' => Str::slug($request->username)
+        ]);
+        
         //Validación
         $request->validate([
             'name' => 'required|max:30',

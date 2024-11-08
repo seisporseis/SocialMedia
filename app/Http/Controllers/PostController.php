@@ -82,5 +82,4 @@ class PostController extends Controller
 
        return redirect()->route('posts.index', Auth::user()->username);
    }
-
 }
