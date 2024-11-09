@@ -29,7 +29,7 @@ class PostController extends Controller
     public function index(User $user) 
     {
 
-        $posts = Post::where('user_id', $user->id)->simplePaginate(12);
+        $posts = Post::where('user_id', $user->id)->latest()->simplePaginate(20);
 
        return view('dashboard', [
         'user' => $user,

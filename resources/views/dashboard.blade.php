@@ -32,22 +32,44 @@
             </div>
            
             <p class="text-gray-800 text-sm mb-3 font-bold mt-5">
-                0
-                <span class="font-normal"> Seguidores</span>
+                {{ $user->followers->count() }}
+                <span class="font-normal">@choice('Seguidor|Seguidores', $user->followers->count() )</span>
             </p>
     
             <p class="text-gray-800 text-sm mb-3 font-bold">
-               0
-                <span class="font-normal"> Siguiendo </span>
+                {{ $user->followings->count() }}
+                <span class="font-normal">@choice('Seguido|Seguidos', $user->followings->count() )</span>
             </p>
     
             <p class="text-gray-800 text-sm mb-3 font-bold">
                {{ $user->posts->count() }}
                 <span class="font-normal"> Posts</span>
             </p>
+
+            <div class="flex gap-4">
+                @auth
+                    @if ( $user->id != Auth::user()->id )
+                        @if ( !$user->following(Auth::user()) )
+                            <form action="{{ route('users.follow', $user) }}" method="POST">
+                            @csrf
+                                <input type="submit" value="Seguir" class="bg-pink-600 hover:bg-pink-700 hover:border-pink-700 text-white font-bold cursor-pointer rounded-lg px-3 py-1 text-xs border border-pink-600"/>
+                            </form>
+                        @else
+                            <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                                <input type="submit" value="Dejar de seguir" class="border border-pink-500 hover:bg-gray-200 font-bold cursor-pointer rounded-lg px-3 py-1 text-xs"/>
+                            </form>
+                        @endif
+                    @endif
+               
+            @endauth
+            </div>
+           
         </div>
     </div>
 </div>
+
 <section class="container mx-auto mt-10">
     <h2 class="text-3xl text-center font-bold my-10">Publicaciones</h2>
 
@@ -61,16 +83,12 @@
         </div>
         @endforeach
     </div>
+
     <div class="my-10 text-center">
         {{ $posts->links() }}
     </div>
-
     @else
-
-    <p class="text-sm text-center text-gray-500 p-5">No hay publicaciones</p>
-   
+        <p class="text-sm text-center text-gray-500 p-5">No hay publicaciones</p>
     @endif
-    
 </section>
-
 @endsection
