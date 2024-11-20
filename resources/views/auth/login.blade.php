@@ -10,7 +10,7 @@
             <h2 class="text-center text-teal-900 font-thin text-xl">
                 @yield('title')
             </h2>
-            <p class=" text-center font-thin text-xs text-slate-400 mb-10">
+            <p class="text-center font-thin text-xs text-slate-400 mb-10">
                 Escribe tu email y tu contraseña para ingresar
             </p>
             

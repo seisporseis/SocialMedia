@@ -13,6 +13,6 @@
             {{ $posts->links() }}
         </div>
     @else
-        <p class="text-center">No Hay Posts</p>
+        <p class="text-center text-teal-900 font-thin py-20 ">Todavía no tienes publicaciones</p>
     @endif
 </div>

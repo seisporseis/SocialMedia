@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Crea una nueva publicación 
+    Nueva publicación 
 @endsection
 
 @push('styles')
@@ -20,7 +20,7 @@
         <form action="{{ route('posts.store') }}" method="POST" novalidate>
             @csrf
             <div class="mb-5">
-                <label for="title" class="mb-2 block text-blue-900 font-bold">
+                <label for="title" class="mb-2 block text-teal-900 font-medium">
                        Título
                 </label>
                 <input 
@@ -28,28 +28,28 @@
                     name="title"
                     type="text"
                     placeholder="¿Qué quieres publicar hoy?"
-                    class="border p-3 w-full rounded-lg font-light @error('name') border-red-500 @enderror"
+                    class="border p-3 w-full font-light text-sm rounded-lg @error('title') border-red-500 @enderror"
                     value="{{ old('title') }}"
                 />
 
                 @error('title')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }} </p>
+                    <p class="text-red-600 font-semibold text-sm p-2 text-center">{{ $message }} </p>
                 @enderror
             </div>
 
             <div class="mb-5">
-                <label for="description" class="mb-2 block text-blue-900 font-bold">
+                <label for="description" class="mb-2 block text-teal-900 font-medium">
                        Descripción
                 </label>
                 <textarea 
                     id="description"
                     name="description"
                     placeholder="Escribe un texto para tu post"
-                    class="border p-3 w-full rounded-lg font-light @error('name') border-red-500 @enderror"
-                >{{ old('description') }}</textarea>
+                    class="border p-3 w-full font-light text-sm rounded-lg @error('description') border-red-500 @enderror"
+                    >{{ old('description') }}</textarea>
 
                 @error('description')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }} </p>
+                    <p class="text-red-600 font-semibold text-sm p-2 text-center">{{ $message }} </p>
                 @enderror
             </div>
 
@@ -60,14 +60,14 @@
                     value="{{ old('image') }}"
                 />
                 @error('image')
-                    <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }} </p>
+                    <p class="text-red-600 font-semibold text-sm p-2 text-center">{{ $message }} </p>
                 @enderror
             </div>
 
             <input
                 type="submit"
                 value="Publicar"
-                class="bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
+                class="bg-teal-800 hover:bg-teal-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-full shadow-lg"
             />
         </form>
     </div>

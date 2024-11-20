@@ -5,22 +5,23 @@
 @endsection
 
 @section('content')
-    <div class="container mx-auto md:flex">
-        <div class="md:w-1/2">
-            <img src="{{ asset('uploads') . '/' . $post->image }}" alt="Imagen del post {{ $post->title }}">
-            
-            <div>
+    <div class="container mx-auto justify-between items-center py-10">
+        <div class="flex justify-center gap-6">      
+            <div class="w-4/12">
+                <img 
+                class="shadow-lg" 
+                src="{{ asset('uploads') . '/' . $post->image }}" alt="Imagen del post {{ $post->title }}">
                 @auth
                 <livewire:like-post :post="$post" />
                 @endauth
             </div>
 
             <div>
-                <p class="font-bold"> {{ $post->user->username }} </p>
-                <p class="text-sm text-gray-500">
+                <p class="font-bold text-teal-900 text-lg"> {{ $post->user->username }} </p>
+                <p class="font-thin text-xs text-slate-400">
                     {{ $post->created_at->diffForHumans() }}
                 </p>
-                <p class="mt-5">
+                <p class="mt-5 font-light">
                     {{ $post->description }}
                 </p>
             </div>
@@ -40,7 +41,7 @@
             @endauth
         </div>
 
-        <div class="md:w-1/2 p-5">
+        <div class=" justify-center gap-6 ">
             <div class="shadow bg-white p-5 mb-5">
                 @auth
                 <p class="text-xl font-bold text-center mb-4">Agrega un nuevo comentario</p>
@@ -72,8 +73,8 @@
                     <input
                         type="submit"
                         value="Comentar"
-                        class="bg-pink-500 hover:bg-pink-600 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg"
-                    />
+                        class="bg-teal-800 hover:bg-teal-900 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-full shadow-lg"
+                        />
                 </form>
                 @endauth
 
