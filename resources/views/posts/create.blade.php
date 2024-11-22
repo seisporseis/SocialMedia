@@ -11,17 +11,25 @@
 @section('content')
 <div class="md:flex md:items-center">
     <div class="md:w-1/2 px-10">
-        <form action="{{ route('images.store') }}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+        <form 
+            action="{{ route('images.store') }}" 
+            method="POST" 
+            enctype="multipart/form-data" 
+            id="dropzone" 
+            class="dropzone w-full h-80 rounded flex flex-col justify-center items-center">
             @csrf
         </form>
     </div>
 
     <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
-        <form action="{{ route('posts.store') }}" method="POST" novalidate>
+        <form 
+            action="{{ route('posts.store') }}" 
+            method="POST" 
+            novalidate>
             @csrf
             <div class="mb-5">
                 <label for="title" class="mb-2 block text-teal-900 font-medium">
-                       Título
+                    Título
                 </label>
                 <input 
                     id="title"
@@ -39,14 +47,15 @@
 
             <div class="mb-5">
                 <label for="description" class="mb-2 block text-teal-900 font-medium">
-                       Descripción
+                    Descripción
                 </label>
                 <textarea 
                     id="description"
                     name="description"
                     placeholder="Escribe un texto para tu post"
-                    class="border p-3 w-full font-light text-sm rounded-lg @error('description') border-red-500 @enderror"
-                    >{{ old('description') }}</textarea>
+                    class="border p-3 w-full font-light text-sm rounded-lg @error('description') border-red-500 @enderror">
+                    {{ old('description') }}
+                </textarea>
 
                 @error('description')
                     <p class="text-red-600 font-semibold text-sm p-2 text-center">{{ $message }} </p>

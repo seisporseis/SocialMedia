@@ -17,14 +17,14 @@
             <div class="container mx-auto flex flex-col lg:flex-row justify-between items-center">
                 <a 
                     href="{{ route('home') }}" 
-                    class="text-4xl font-bold bg-gradient-to-r from-teal-900 to-rose-500 bg-clip-text text-transparent">
+                    class="xl:text-4xl text-2xl font-bold bg-gradient-to-r from-teal-900 to-rose-500 bg-clip-text text-transparent">
                     DevStagram
                 </a>
 
                 @auth
                 <nav class="flex flex-col lg:flex-row items-center gap-8"> 
                     <a class="text-sm font-thin text-teal-800" href="{{ route('posts.index', auth()->user()->username) }}">
-                      Estás en linea, <span class="underline font-medium cursor-pointer">{{ auth()->user()->username }}</span>
+                      Estás en línea, <span class="underline font-medium cursor-pointer">{{ auth()->user()->username }}</span>
                     </a>
 
                     <a 
