@@ -1,5 +1,5 @@
 <div>
-    <div class="flex items-center gap-2 xl:pb-4 ">
+    <div class="mt-4">
         <button wire:click="like" class="pt-1">
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 

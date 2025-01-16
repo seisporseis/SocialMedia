@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<section class="container mx-auto">
+<section class="container">
     <h2 class="text-3xl text-center font-bold my-10 text-teal-900">Mis publicaciones</h2>
     <x-post-list :posts="$posts" />
 </section>
